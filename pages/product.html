@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Page</title>
+  <link rel="icon" href="../images/ram-tran-logo.jpg" style="height: 50px; width: 50px; border-radius:50%;" >
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #E67514;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .main {
+      width: 100%;
+    }
+
+    .header {
+      width: 100%;
+      height: 80px;
+      background-color: #E67514;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    }
+
+    .left-side {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+
+    .left-side span {
+      font-size: 28px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .right-side {
+      display: flex;
+      gap: 20px;
+    }
+
+    .right-side a {
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 4px 0;
+    }
+
+    .maiCon {
+      margin-top: 100px;
+      padding: 20px;
+      background-color: #c9c4c4;
+    }
+
+    .product-container {
+      width: 100%;
+    }
+
+    .cards-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .card {
+      width: 30%;
+      height: 500px;
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .card img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+    }
+
+    .card p {
+      text-align: center;
+      font-size: 20px;
+      font-weight: 600;
+      margin: 10px 0;
+    }
+
+    .card button {
+      display: block;
+      margin: 10px auto 20px auto;
+      width: 80%;
+      padding: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: #fff;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    }
+
+    .card button:hover {
+      background-color: #E67514;
+      color: white;
+    }
+
+    /* Media Queries */
+    @media (max-width: 1024px) {
+      .card {
+        width: 45%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .right-side {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        right: 20px;
+        background-color: #E67514;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .right-side.active {
+        display: flex;
+      }
+
+      .right-side a {
+        margin: 10px 0;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .card {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <!-- Header -->
+    <div class="header">
+      <div class="left-side">
+        <img class="logo" src="../images/ram-tran-logo.jpg" />
+        <span>Ram Transport</span>
+      </div>
+
+      <!-- Toggle -->
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="right-side" id="menu">
+        <a href="./index.html">Home</a>
+        <a href="./product.html">Product</a>
+        <a href="./services.html">Services</a>
+        <a href="./about.html">About</a>
+        <a href="./contact.html">Contact</a>
+      </div>
+    </div>
+
+    <!-- Product Section -->
+    <div class="maiCon">
+      <div class="product-container">
+        <div class="cards-group">
+          <div class="card">
+            <img src="../images/ram-transport-cement.webp" alt="Cement">
+            <p>Cement</p>
+            <a href="./contact.html"><button>Order Now</button></a>
+          </div>
+          <div class="card">
+            <img src="../images/ram-transport-iron.jpeg" alt="Steel Iron">
+            <p>Steel Iron</p>
+            <a href="./contact.html"><button>Order Now</button></a>
+          </div>
+          <div class="card">
+            <img src="../images/ram-transport-bricks.jpg" alt="Sand">
+            <p>Sand</p>
+            <a href="./contact.html"><button>Order Now</button></a>
+          </div>
+          <div class="card">
+            <img src="../images/ram-tar.jpg" alt="Aggregates">
+            <p>Aggregates</p>
+            <a href="./contact.html"><button>Order Now</button></a>
+          </div>
+          <div class="card">
+            <img src="../images/ram-tar2.jpg" alt="Bricks">
+            <p>Bricks</p>
+            <a href="./contact.html"><button>Order Now</button></a>
+          </div>
+          <div class="card">
+            <img src="../images/ram-tar4.jpg" alt="Stone">
+            <p>Stone</p>
+            <a href="./contact.html"><button>Order Now</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toggle Script -->
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("active");
+    }
+  </script>
+</body>
+
+</html>
