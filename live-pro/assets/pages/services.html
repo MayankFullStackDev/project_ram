@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services Page</title>
+  <link rel="icon" href="../images/ram-tran-logo.jpg" style="height: 50px; width: 50px; border-radius:50%;" >
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #E67514;
+      font-family: "Roboto", sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .header {
+      width: 100%;
+      background-color: #E67514;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+      position: fixed;
+      top: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      height: 100px;
+    }
+
+    .left-side {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+    }
+
+    .brand {
+      font-size: 40px;
+      font-weight: 600;
+      color: white;
+      margin-left: 15px;
+    }
+
+    .right-side {
+      display: flex;
+      gap: 25px;
+    }
+
+    .heads {
+      font-size: 19px;
+      color: white;
+      font-weight: 600;
+    }
+
+    .menu-icon {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .bar {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background-color: #E67514;
+      width: 100%;
+      text-align: center;
+      padding-top: 10px;
+    }
+
+    .mobile-menu a {
+      padding: 10px 0;
+    }
+
+    .service-main {
+      margin-top: 100px;
+      background-color: #E67514;
+    }
+
+    .section-box {
+      display: flex;
+      background-color: #e2dfdf;
+      width: 100%;
+      height: 600px;
+    }
+
+    .section-box:nth-child(even) {
+      background-color: #E67514;
+    }
+
+    .section-text,
+    .section-img {
+      width: 50%;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .section-heading {
+      font-size: 30px;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #000;
+    }
+
+    .section-content {
+      font-size: 23px;
+      font-weight: 500;
+      text-align: justify;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+
+    .section-img img {
+      width: 80%;
+      height: 90%;
+      object-fit: contain;
+      margin: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .section-img img:hover {
+      transform: scale(1.08);
+    }
+
+    .card-service {
+      width: 100%;
+      background-color: #E67514;
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      padding: 60px 20px;
+    }
+
+    .card1,
+    .card2,
+    .card3 {
+      width: 300px;
+      height: 300px;
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: rgba(0, 0, 0, 0.25) 1px 57px 58px,
+        rgba(0, 0, 0, 0.12) 1px -15px 34px,
+        rgba(0, 0, 0, 0.12) 2px 6px 8px,
+        rgba(0, 0, 0, 0.17) 2px 16px 17px,
+        rgba(0, 0, 0, 0.09) 0px -6px 8px;
+      margin: 20px 0;
+      text-align: center;
+      padding: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card1:hover,
+    .card2:hover,
+    .card3:hover {
+      transform: scale(1.08);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-content {
+      font-size: 22px;
+    }
+
+    @media (max-width: 768px) {
+      .right-side {
+        display: none;
+      }
+
+      .menu-icon {
+        display: flex;
+      }
+
+      .mobile-menu.show {
+        display: flex;
+      }
+
+      .section-box {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .section-text,
+      .section-img {
+        width: 100%;
+        height: auto;
+      }
+
+      .section-img img {
+        width: 90%;
+        height: auto;
+      }
+
+      .card1,
+      .card2,
+      .card3 {
+        width: 90%;
+      }
+
+      .brand {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="left-side">
+      <img class="logo" src="../images/ram-tran-logo.jpg" />
+      <span class="brand">Ram Transport</span>
+    </div>
+    <div class="menu-icon" onclick="toggleMenu()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <div class="right-side">
+      <a href="./index.html"><span class="heads">Home</span></a>
+      <a href="./product.html"><span class="heads">Product</span></a>
+      <a href="./service.html"><span class="heads">Services</span></a>
+      <a href="./about.html"><span class="heads">About</span></a>
+      <a href="./contact.html"><span class="heads">Contact</span></a>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="./index.html"><span class="heads">Home</span></a>
+    <a href="./product.html"><span class="heads">Product</span></a>
+    <a href="./services.html"><span class="heads">Services</span></a>
+    <a href="./about.html"><span class="heads">About</span></a>
+    <a href="./contact.html"><span class="heads">Contact</span></a>
+  </div>
+
+  <!-- SERVICE SECTION -->
+  <div class="service-main">
+
+    <!-- Truck Section -->
+    <div class="section-box">
+      <div class="section-text">
+        <p class="section-heading">WE HAVE !!</p>
+        <p class="section-content">
+          Two 10 Wheeler truck & two 12 wheeler truck<br />
+          we supply building material and also on the<br />
+          reasonable price we have experienced driver’s<br />
+          and staff
+        </p>
+      </div>
+      <div class="section-img">
+        <img src="../images/tatatruck_bj-removebg-preview.png" alt="Truck" />
+      </div>
+    </div>
+
+    <!-- JCB Section -->
+    <div class="section-box">
+      <div class="section-img">
+        <img src="../images/ram jcb.png" alt="JCB" />
+      </div>
+      <div class="section-text">
+        <p class="section-heading">WE HAVE !!</p>
+        <p class="section-content">
+          Three JCB Machines we give on rent at reasonable price.<br />
+          Charges taken according to hours. We have experienced and perfect operators (19+ years),<br />
+          and best helpers to complete work before the deadline.
+        </p>
+      </div>
+    </div>
+
+    <!-- Tractor Section -->
+    <div class="section-box">
+      <div class="section-text">
+        <p class="section-heading">WE HAVE !!</p>
+        <p class="section-content">
+          Six tractors are available for rent<br />
+          used to transport building material and farm work.<br />
+          We have thresher machine, trolly and all the equipment used in farming.
+        </p>
+      </div>
+      <div class="section-img">
+        <img src="../images/ramtruck2-removebg-preview.png" alt="Tractor" />
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CARD SECTION -->
+  <div class="card-service">
+    <div class="card2">
+      <p class="card-content">
+        🏗️ Vehicles on Rent<br /><br />
+        We provide trucks and dumpers for rent<br />
+        with trained professional operators.
+      </p>
+    </div>
+    <div class="card1">
+      <p class="card-content">
+        🚛 On-Time Delivery<br /><br />
+        We value your time.<br />
+        We ensure fast & safe delivery.
+      </p>
+    </div>
+    <div class="card3">
+      <p class="card-content">
+        📦 Bulk Orders<br /><br />
+        We handle large orders<br />
+        for companies & contractors.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("mobileMenu").classList.toggle("show");
+    }
+  </script>
+</body>
+</html>
